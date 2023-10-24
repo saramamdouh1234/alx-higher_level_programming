@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" defines  class Square """
+""" defines class Square """
 
 
 class Square:
@@ -12,5 +12,5 @@ class Square:
         else:
             self.__size = size
 
-               def area(self):
-        return self.__size ** 2
+    def area(self):
+        return self.__size * self.__size
