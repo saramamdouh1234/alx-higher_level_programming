@@ -1,6 +1,9 @@
 #!/usr/bin/python3
+""" Defines a class  Square """
+
+
 class Square:
-    """class square Defines """
+    """ defines a function  __init__ """
     def __init__(self, size):
-        """Initialises __size """
+        """ initializes __size o """
         self.__size = size
