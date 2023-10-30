@@ -1,12 +1,12 @@
 #!/usr/bin/python3
-""" empty class Rectangle
+""" empty class Rectangle 
 """
 
 
 class Rectangle:
     """ class rectangle"""
     def __init__(self, width=0, height=0):
-        """ Instantiation width and height"""
+        """ Instantiation  width and height"""
         self.width = width
         self.height = height
 
@@ -43,7 +43,7 @@ class Rectangle:
         self.__height = value
 
     def area(self):
-        """ returns area"""
+        """ returns rectangle area"""
         return self.__width * self.__height
 
     def perimeter(self):
@@ -51,3 +51,11 @@ class Rectangle:
         if self.__width is 0 or self.__height is 0:
             return (0)
         return ((self.__width * 2 + self.__height * 2))
+
+    def __str__(self):
+        """ return  the character #
+        """
+        if self.__width is 0 or self.__height is 0:
+            return ""
+        return ("\n".join(["".join(["#" for x in range(self.__width)])
+                for y in range(self.__height)]))
