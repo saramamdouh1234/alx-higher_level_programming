@@ -1,5 +1,8 @@
 #!/usr/bin/python3
+"""read_file module."""
+
+
 def read_file(filename=""):
-    """read file"""
-    with open(filename, mode="r", encoding="utf-8") as a_file:
-        print(a_file.read(), end="")
+    """Reads a text file and prints it."""
+    with open(filename, 'r') as f:
+        print(f.read(), end='')
