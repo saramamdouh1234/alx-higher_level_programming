@@ -29,3 +29,43 @@ class Square(Rectangle):
         """setter size"""
         self.widht = value
         self.hight = value
+
+    def __str__(self):
+        """ str  method """
+        str_rectangle = "[Square] "
+        str_id = "({}) ".format(self.id)
+        str_xy = "{}/{} - ".format(self.x, self.y)
+        str_size = "{}".format(self.size)
+
+        return str_rectangle + str_id + str_xy + str_size
+
+    def update(self, *args, **kwargs):
+        """ update method """
+        if args is not None and len(args) is not 0:
+            list_str = ['id', 'size', 'x', 'y']
+            for j in range(len(args)):
+                if list_str[j] == 'size':
+                    setattr(self, 'width', args[j])
+                    setattr(self, 'height', args[j])
+                else:
+                    setattr(self, list_str[j], args[j])
+        else:
+            for key, value in kwargs.items():
+                if key == 'size':
+                    setattr(self, 'width', value)
+                    setattr(self, 'height', value)
+                else:
+                    setattr(self, key, value)
+
+    def to_dictionary(self):
+        """ Returns attributes """
+        list_str = ['id', 'size', 'x', 'y']
+        dict_resa = {}
+
+        for key in list_atr:
+            if key == 'size':
+                dict_atr[key] = getattr(self, 'width')
+            else:
+                dict_atr[key] = getattr(self, key)
+
+        return dict_atr
