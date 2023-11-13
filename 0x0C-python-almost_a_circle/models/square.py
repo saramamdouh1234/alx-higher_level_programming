@@ -60,7 +60,7 @@ class Square(Rectangle):
     def to_dictionary(self):
         """ Returns attributes """
         list_str = ['id', 'size', 'x', 'y']
-        dict_resa = {}
+        dict_atr = {}
 
         for key in list_atr:
             if key == 'size':
@@ -69,3 +69,12 @@ class Square(Rectangle):
                 dict_atr[key] = getattr(self, key)
 
         return dict_atr
+
+    def to_dictionary(self):
+        """Return the dictionary of the  Square."""
+        return {
+            "id": self.id,
+            "size": self.width,
+            "x": self.x,
+            "y": self.y
+        }
