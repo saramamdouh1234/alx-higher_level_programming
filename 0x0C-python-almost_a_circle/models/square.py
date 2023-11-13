@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" class Square """
+""" Module that contains class Square """
+
 from models.rectangle import Rectangle
 
 
@@ -7,7 +8,7 @@ class Square(Rectangle):
     """ Class Rectangle """
 
     def __init__(self, size, x=0, y=0, id=None):
-        """ Initializes inst """
+        """ Initializes instances """
         super().__init__(size, size, x, y, id)
 
     def __str__(self):
@@ -18,20 +19,20 @@ class Square(Rectangle):
         str_wh = "{}/{}".format(self.width, self.height)
 
         return str_square + str_id + str_xy + str_wh
-    
+
     @property
     def size(self):
-        """ size square """
+        """ Getter size """
         return self.width
 
     @size.setter
     def size(self, value):
-        """setter size"""
-        self.widht = value
-        self.hight = value
+        """ Setter size """
+        self.width = value
+        self.height = value
 
     def __str__(self):
-        """ str  method """
+        """ str special method """
         str_rectangle = "[Square] "
         str_id = "({}) ".format(self.id)
         str_xy = "{}/{} - ".format(self.x, self.y)
@@ -41,14 +42,14 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """ update method """
-        if args is not None and len(args) is not 0:
-            list_str = ['id', 'size', 'x', 'y']
-            for j in range(len(args)):
-                if list_str[j] == 'size':
-                    setattr(self, 'width', args[j])
-                    setattr(self, 'height', args[j])
+        if args is not None and len(args) != 0:
+            list_atr = ['id', 'size', 'x', 'y']
+            for i in range(len(args)):
+                if list_atr[i] == 'size':
+                    setattr(self, 'width', args[i])
+                    setattr(self, 'height', args[i])
                 else:
-                    setattr(self, list_str[j], args[j])
+                    setattr(self, list_atr[i], args[i])
         else:
             for key, value in kwargs.items():
                 if key == 'size':
@@ -58,23 +59,14 @@ class Square(Rectangle):
                     setattr(self, key, value)
 
     def to_dictionary(self):
-        """ Returns attributes """
-        list_str = ['id', 'size', 'x', 'y']
-        dict_atr = {}
+        """ Returns a dictionary """
+        list_atr = ['id', 'size', 'x', 'y']
+        dict_str = {}
 
         for key in list_atr:
             if key == 'size':
-                dict_atr[key] = getattr(self, 'width')
+                dict_str[key] = getattr(self, 'width')
             else:
-                dict_atr[key] = getattr(self, key)
+                dict_str[key] = getattr(self, key)
 
-        return dict_atr
-
-    def to_dictionary(self):
-        """Return the dictionary of the  Square."""
-        return {
-            "id": self.id,
-            "size": self.width,
-            "x": self.x,
-            "y": self.y
-        }
+        return dict_str
